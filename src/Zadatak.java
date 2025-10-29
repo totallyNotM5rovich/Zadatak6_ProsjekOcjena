@@ -12,7 +12,16 @@ public class Zadatak {
         for (int i = 0; i < brojOcjena; i++) {
             String poruka = (i == 0) ? "Unesite prvu ocjenu:" : "Unesite sljedecu ocjenu:";
             System.out.println(poruka);
-            ocjene[i] = Integer.parseInt(scanner.nextLine());
+            int j = 0;
+            int unesenaOcjena;
+            do {
+                if (j > 0) {
+                    System.out.println("Neispravna ocjena! Unesite ispravnu ocjenu");
+                }
+                unesenaOcjena = Integer.parseInt(scanner.nextLine());
+                j++;
+            } while (unesenaOcjena < 1 || unesenaOcjena > 5);
+            ocjene[i] = unesenaOcjena;
             zbrojOcjena += ocjene[i];
         }
         System.out.println("Prosjek unesenih ocjena je: " + (double)zbrojOcjena/brojOcjena);
