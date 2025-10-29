@@ -5,7 +5,15 @@ public class Zadatak {
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Unesite broj ocjena ciji prosjek racunate:");
-        int brojOcjena = Integer.parseInt(scanner.nextLine());
+        int brojOcjena;
+        int k = 0;
+        do {
+            if (k > 0) {
+                System.out.println("Neispravan unos! Broj ocjena ne moze biti negativan broj!");
+            }
+            brojOcjena = Integer.parseInt(scanner.nextLine());
+            k++;
+        } while (brojOcjena < 0);
 
         int[] ocjene = new int[brojOcjena];
         int zbrojOcjena = 0;
